@@ -1,0 +1,31 @@
+<% provide(:title, 'Sign up') %>
+<h1>Điền thông tin</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@form1) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :time_work %>
+      <%= f.text_field :time_work %>
+
+      <%= f.label :job %>
+      <%= f.text_field :job %>
+
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+
+      <%= f.label :customer %>
+      <%= f.text_field :customer %>
+
+      <%= f.label :income %>
+      <%= f.number_field :income %>
+
+      <%= f.label "Work description" %>
+      <%= f.text_field :work_des %>
+
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
