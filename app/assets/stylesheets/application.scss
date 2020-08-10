@@ -112,7 +112,7 @@ footer ul li {
     width: 550px;
 }
 .user_center {
-    height: 450px;
+    height: 200px;
 }
 /* forms */
 
@@ -152,7 +152,13 @@ table {
   }
   
 th {
+    text-align: center;
+    border: 1px solid black;
     height: 50px;
+}
+td {
+  text-align: center;
+  border: 1px solid black;
 }
 /* Users index */
 

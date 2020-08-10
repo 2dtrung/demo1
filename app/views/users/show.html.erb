@@ -27,3 +27,54 @@
 <%= link_to "Nhập thông tin", new_user_form2_url(current_user), class: "btn btn-lg btn-info" %>
 <%= link_to "Xem thông tin", user_form2_url(current_user), class: "btn btn-lg btn-info" %>
 </div>
+<h2 style="color: blue; font-weight:bold;">Làm việc tự do</h2>
+      <table>
+        <tr>
+          <th>STT</th>
+          <th>Thời gian</th>
+          <th>Công việc</th>
+          <th>Ngày</th>
+          <th>Khách hàng</th>
+          <th>Số tiền</th>
+          <th>Nội dung</th>
+        </tr>
+        <%count=1%>
+        <% @user.form1s.each do |form1| %>
+        <tr>
+          <td><%= count%></td>
+          <td><%= form1.time_work %></td>
+          <td><%= form1.job %></td>
+          <td><%= form1.date %></td>
+          <td><%= form1.customer %></td>
+          <td><%= form1.income %></td>
+          <td><%= form1.work_des%></td>
+         </tr>
+          <%count+=1%>
+        <% end %>
+      </table>
+<h2 style="color: blue; font-weight:bold;">Làm việc cho công ty</h2>
+      <table>
+        <tr>
+          <th>STT</th>
+          <th>Tên công ty</th>
+          <th>Mã số thuế</th>
+          <th>Địa chỉ</th>
+          <th>Vị trí</th>
+          <th>Ngày</th>
+          <th>Nội dung</th>
+          <th>Lương</th>
+        </tr>
+        <%count=1%>
+        <% @user.form2s.each do |form2| %>
+        <tr>
+          <td><%= count%></td>
+          <td><%= form2.company_name %></td>
+          <td><%= form2.tax_code %></td>
+          <td><%= form2.position %></td>
+          <td><%= form2.date %></td>
+          <td><%= form2.work_des%></td>
+          <td><%= form2.income%></td>
+        </tr>
+        <%count+=1%>
+        <% end %>
+      </table>
