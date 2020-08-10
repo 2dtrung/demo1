@@ -15,15 +15,16 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-light navbar-fixed-top" style="background-color: #9999ff;">
       <div class="container">
-        <%= link_to "Tiuh WEBSITE", 'http://localhost:3000/', id: "logo" %>
+        <%= link_to "Tiuh WEBSITE", root_url, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   'http://localhost:3000/' %></li>
+            <li><%= link_to "Home",   root_url %></li>
             <li><%= link_to "Help",   '#' %></li>
             <% if logged_in? %>
               <li><%= link_to "Users", current_user%></li>
+              <li><%= link_to "View", users_path%></li>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>
               </li>

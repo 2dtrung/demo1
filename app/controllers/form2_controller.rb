@@ -1,9 +1,12 @@
 class Form2Controller < ApplicationController
+  def index
+    @form2 = Form2.where(user_id: current_user.id)
+  end
   def new
     @form2 = Form2.new
   end
   def show
-    @form2 = Form2.find(params[:id])
+    @form2 = Form2.where(user_id: current_user.id)
   end
   def create
     @form2 =  Form2.new(form2_params.merge(user_id: current_user.id))

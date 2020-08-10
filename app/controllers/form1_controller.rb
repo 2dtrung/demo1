@@ -1,9 +1,12 @@
 class Form1Controller < ApplicationController
+  def index
+    @form1 = Form1.where(user_id: current_user.id)
+  end
   def new
     @form1 = Form1.new
   end
   def show
-    @form1 = Form1.find(params[:id])
+    @form1 = Form1.where(user_id: current_user.id)
   end
   def create
     @form1 =  Form1.new(form1_params.merge(user_id: current_user.id))

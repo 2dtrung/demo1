@@ -1,0 +1,31 @@
+
+<table>
+  <tr>
+    <th>Tên công ty</th>
+    <th>Mã số thuế</th>
+    <th>Địa chỉ</th>
+    <th>Họ và tên nhân viên</th>
+    <th>Vị trí</th>
+    <th>Ngày</th>
+    <th>Nội dung công việc</th>
+    <th>Lương</th>
+    <th></th>
+  </tr>
+ 
+  <% @form2.each do |form2| %>
+    <tr>
+      <td><%= form2.company_name %></td>
+      <td><%= form2.tax_code %></td>
+      <td><%= form2.address %></td>
+      <td><%= form2.name %></td>
+      <td><%= form2.position %></td>
+      <td><%= form2.date %></td>
+      <td><%= form2.work_des%></td>
+      <td><%= form2.income %></td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<br>
+<%= link_to 'Back', current_user ,class: "btn btn-lg btn-info"%>

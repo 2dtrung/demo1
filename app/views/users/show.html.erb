@@ -1,19 +1,29 @@
 <% provide(:title, @user.name) %>
-<h1>Chào!</h1>
-<h1>
-  <%= @user.name %>
-</h1>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        Welcome! 
+        <br>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
 <div class="user_center">
 <h3>
     Nếu bạn làm việc theo 
     <a href="https://drive.google.com/file/d/1ucGjhLwVx-uzawQq8bTESnhm36o594Po/view">Loại hình tự do</a>
     (xem bản mẫu).
 </h3>
-<%= link_to "Nhập thông tin", newform1_path, class: "btn btn-lg btn-primary" %>
+<%= link_to "Nhập thông tin", new_user_form1_url(current_user), class: "btn btn-lg btn-info" %>
+<%= link_to "Xem thông tin", user_form1_url(current_user), class: "btn btn-lg btn-info" %>
 <h3>
     Nếu bạn làm việc theo 
     <a href="https://drive.google.com/file/d/1CoOf9gD-YRsq83h7UlNIyRyct5RFmAdM/view">Loại hình làm việc cho công ty</a>
     (xem bản mẫu).
 </h3>
-<%= link_to "Nhập thông tin", newform2_path, class: "btn btn-lg btn-primary" %>
+<%= link_to "Nhập thông tin", new_user_form2_url(current_user), class: "btn btn-lg btn-info" %>
+<%= link_to "Xem thông tin", user_form2_url(current_user), class: "btn btn-lg btn-info" %>
 </div>

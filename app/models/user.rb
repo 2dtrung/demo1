@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :form1s
-  has_many :form2s
+  has_many :form1s, dependent: :destroy
+  has_many :form2s, dependent: :destroy
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
