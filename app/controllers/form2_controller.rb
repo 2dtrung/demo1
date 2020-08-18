@@ -1,6 +1,10 @@
 class Form2Controller < ApplicationController
   def index
     @form2 = Form2.where(user_id: current_user.id)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @form2.as_csv}
+    end
   end
   def new
     @form2 = Form2.new
