@@ -3,34 +3,54 @@
 <h1>THEO HỢP ĐỒNG CÔNG TY</h1>
 <center>
   <p class="text-uppercase">Income statement for working at home</p>
-  <p class="text-uppercase">(Type : Registered worker at a company</p>
+  <p class="text-uppercase">(Type : Registered worker at a company)</p>
 </center>
 <p class="text-justify">Tên công ty/Company Name: <%= "Cohota"%></p>
 <p class="text-justify">Mã số thuế/Tax Code: <%= "35271819AFBM"%></p>
 <p class="text-justify">Địa chỉ/Address: <%= "Khu CNPM - ĐHQG, TH.HCM"%></p>
 <p class="text-justify">Họ và Tên nhân viên/Full Name: <%= current_user.name%></p>
 <p class="text-justify">Vị trí/Position: <%= "Tester"%></p>
-<table>
-  <tr>
-    <th>STT/No</th>
-    <th>Ngày/Date</th>
-    <th>Lương/Income</th>
-    <th>Nội dung công việc/Work Description</th>
-    <th>Ghi chú/Note</th>
-  </tr>
-  <%count=1%>
-  <% @form2.each do |form2| %>
+<table id="table2" class="display" style="width:100%">
+  <thead>
     <tr>
-      <td><%= count%></td>
-      <td><%= form2.date %></td>
-      <td><%= form2.income %></td>
-      <td><%= form2.work_des%></td>
-      <td><%= "" %></td>
-      <%count+=1%>
+      <th>STT/No</th>
+      <th>Ngày/Date</th>
+      <th>Lương/Income</th>
+      <th>Nội dung công việc/Work Description</th>
+      <th>Ghi chú/Note</th>
     </tr>
-  <% end %>
+  </thead>
+  <%count=1%>
+  <tbody>
+    <% @form2.each do |form2| %>
+      <tr>
+        <td><%= count%></td>
+        <td><%= form2.date %></td>
+        <td><%= form2.income %></td>
+        <td><%= form2.work_des%></td>
+        <td><%= "" %></td>
+        <%count+=1%>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>STT/No</th>
+      <th>Ngày/Date</th>
+      <th>Lương/Income</th>
+      <th>Nội dung công việc/Work Description</th>
+      <th>Ghi chú/Note</th>
+    </tr>
+  </tfoot>
 </table>
 <br>
+<p class="text-justify">Xác nhận của nhân viên </p>
+<p class="text-justify">(ký ghi rõ họ tên)</p>
 <br>
 <%= link_to 'Back', current_user ,class: "btn btn-lg btn-info"%>
 <%= link_to 'Export to Excel', user_form2_index_url(format: :csv) ,class: "btn btn-lg btn-info"%>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#table2').DataTable();
+  } );
+</script>
