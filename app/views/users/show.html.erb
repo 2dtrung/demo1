@@ -4,9 +4,11 @@
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
-        Welcome! 
+        Welcome!
         <br>
         <%= @user.name %>
+        <br>
+        <%= @user.email %>
       </h1>
     </section>
   </aside>
@@ -57,19 +59,47 @@
   </tbody>
   <tfoot>
     <tr>
-      <th>STT</th>
-      <th>Thời gian</th>
-      <th>Công việc</th>
-      <th>Ngày</th>
-      <th>Khách hàng</th>
-      <th>Số tiền</th>
-      <th>Nội dung</th>
+      <th>Total:</th>
+      <th colspan="6" style="text-align:center"></th>
     </tr>
   </tfoot>
 </table>
 <script language="javascript" type="text/javascript">
   $(document).ready(function() {
-      $('#table1').DataTable();
+      $('#table1').DataTable({
+        "footerCallback": function ( row, data, start, end, table ) {
+            var api = this.api(), data;
+  
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                    i.replace(/[\$,]/g, '')*1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+  
+            // Total over all pages
+            total = api
+                .column( 5 )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+  
+            // Total over this page
+            pageTotal = api
+                .column( 5, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+  
+            // Update footer
+            $( api.column( 5 ).footer() ).html(
+                pageTotal +' (total: '+ total +')'
+            );
+        }
+      });
   } );
 </script>
 <h2 style="color: blue; font-weight:bold;">Làm việc cho công ty</h2>
@@ -104,19 +134,46 @@
   </tbody>
   <tfoot>
     <tr>
-      <th>STT</th>
-      <th>Tên công ty</th>
-      <th>Mã số thuế</th>
-      <th>Địa chỉ</th>
-      <th>Vị trí</th>
-      <th>Ngày</th>
-      <th>Lương</th>
-      <th>Nội dung</th>
+      <th>Total:</th>
+      <th colspan="7" style="text-align:center"></th>
     </tr>
   </tfoot>
 </table>
 <script language="javascript" type="text/javascript">
   $(document).ready(function() {
-      $('#table2').DataTable();
+      $('#table2').DataTable({
+        "footerCallback": function ( row, data, start, end, table ) {
+            var api = this.api(), data;
+  
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                    i.replace(/[\$,]/g, '')*1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+  
+            // Total over all pages
+            total = api
+                .column( 6 )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+  
+            // Total over this page
+            pageTotal = api
+                .column( 6, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+  
+            // Update footer
+            $( api.column( 6 ).footer() ).html(
+                pageTotal +' (total: '+ total +')'
+            );
+        }
+      });
   } );
 </script>
