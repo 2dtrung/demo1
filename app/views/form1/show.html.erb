@@ -1,27 +1,35 @@
-
+<h1>BÁO CÁO THU NHẬP LÀM VIỆC TẠI</h1>
+<h1>DÀNH CHO NGƯỜI LÀM VIỆC TỰ DO</h1>
+<center>
+  <p class="text-uppercase">Income statement for working at home</p>
+  <p class="text-uppercase">(Type : Freelancer/self - employed)</p>
+</center>
+<p class="text-justify">Tên/Name: <%= current_user.name%></p>
+<p class="text-justify">Thời gian/Time: <%= "2020-12-24 - "%></p>
+<p class="text-justify">Công Việc / Job: <%= "Online Selling"%></p>
 <table>
   <tr>
-    <th>Tên</th>
-    <th>Thời gian</th>
-    <th>Công việc</th>
-    <th>Ngày</th>
-    <th>Khách hàng</th>
-    <th>Số tiền</th>
-    <th>Nội dung</th>
+    <th>STT/No</th>
+    <th>Ngày/Date</th>
+    <th>Khách hàng/Customer</th>
+    <th>Số tiền/Income</th>
+    <th>Nội dung/Description</th>
+    <th>Xác nhận/Signature</th>
   </tr>
+  <%count=1%>
   <% @form1.each do |form1| %>
     <tr>
-      <td><%= form1.name %></td>
-      <td><%= form1.time_work %></td>
-      <td><%= form1.job %></td>
+      <td><%= count%></td>
       <td><%= form1.date %></td>
       <td><%= form1.customer %></td>
       <td><%= form1.income %></td>
-      <td><%= form1.work_des%></td>
+      <td><%= form1.work_des %></td>
+      <td><%= "" %></td>
+      <%count+=1%>
     </tr>
   <% end %>
 </table>
 <br>
 <br>
 <%= link_to 'Back', current_user ,class: "btn btn-lg btn-info"%>
-<%= link_to 'Export', user_form1_index_url(format: :csv) ,class: "btn btn-lg btn-info"%>
+<%= link_to 'Export to Excel', user_form1_index_url(format: :csv) ,class: "btn btn-lg btn-info"%>
