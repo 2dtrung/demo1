@@ -1,30 +1,36 @@
-
+<h1>BẢNG LƯƠNG LÀM VIỆC TẠI NHÀ</h1>
+<h1>DÀNH CHO NHÂN VIÊN LÀM VIỆC</h1>
+<h1>THEO HỢP ĐỒNG CÔNG TY</h1>
+<center>
+  <p class="text-uppercase">Income statement for working at home</p>
+  <p class="text-uppercase">(Type : Registered worker at a company</p>
+</center>
+<p class="text-justify">Tên công ty/Company Name: <%= "Cohota"%></p>
+<p class="text-justify">Mã số thuế/Tax Code: <%= "35271819AFBM"%></p>
+<p class="text-justify">Địa chỉ/Address: <%= "Khu CNPM - ĐHQG, TH.HCM"%></p>
+<p class="text-justify">Họ và Tên nhân viên/Full Name: <%= current_user.name%></p>
+<p class="text-justify">Vị trí/Position: <%= "Tester"%></p>
 <table>
   <tr>
-    <th>Tên công ty</th>
-    <th>Mã số thuế</th>
-    <th>Địa chỉ</th>
-    <th>Họ và tên nhân viên</th>
-    <th>Vị trí</th>
-    <th>Ngày</th>
-    <th>Nội dung công việc</th>
-    <th>Lương</th>
+    <th>STT/No</th>
+    <th>Ngày/Date</th>
+    <th>Lương/Income</th>
+    <th>Nội dung công việc/Work Description</th>
+    <th>Ghi chú/Note</th>
   </tr>
- 
+  <%count=1%>
   <% @form2.each do |form2| %>
     <tr>
-      <td><%= form2.company_name %></td>
-      <td><%= form2.tax_code %></td>
-      <td><%= form2.address %></td>
-      <td><%= form2.name %></td>
-      <td><%= form2.position %></td>
+      <td><%= count%></td>
       <td><%= form2.date %></td>
-      <td><%= form2.work_des%></td>
       <td><%= form2.income %></td>
+      <td><%= form2.work_des%></td>
+      <td><%= "" %></td>
+      <%count+=1%>
     </tr>
   <% end %>
 </table>
 <br>
 <br>
 <%= link_to 'Back', current_user ,class: "btn btn-lg btn-info"%>
-<%= link_to 'Export', user_form2_index_url(format: :csv) ,class: "btn btn-lg btn-info"%>
+<%= link_to 'Export to Excel', user_form2_index_url(format: :csv) ,class: "btn btn-lg btn-info"%>
