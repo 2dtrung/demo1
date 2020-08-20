@@ -24,7 +24,7 @@
             <li><%= link_to "Help",   '#' %></li>
             <% if logged_in? %>
               <li><%= link_to "Users", current_user%></li>
-              <li><%= link_to "View", users_path%></li>
+              <li><%= link_to "Views", users_path%></li>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>
               </li>
