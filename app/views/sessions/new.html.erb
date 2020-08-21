@@ -1,5 +1,5 @@
 <% provide(:title, "Log in") %>
-<h1>Đăng nhập</h1>
+<h1>Sign in</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -16,9 +16,9 @@
         <%= f.check_box :remember_me %>
         <span>Remember me on this computer</span>
       <% end %>
-      <%= f.submit "Đăng nhập", class: "btn btn-info" %>
+      <%= f.submit "Sign in", class: "btn btn-info" %>
     <% end %>
 
-    <p>Chưa có tài khoản? <%= link_to "Đăng kí ngay!", signup_path %></p>
+    <p>If you don't have an account? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
