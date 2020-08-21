@@ -23,6 +23,10 @@ class User < ApplicationRecord
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
+  # Forgets a user.
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
   # Returns a random token.
   def User.new_token
     SecureRandom.urlsafe_base64
