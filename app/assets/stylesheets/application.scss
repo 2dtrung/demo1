@@ -20,7 +20,7 @@
 
  #logo {
     float: left;
-    margin-right: 750px;
+    width: 300px;
     font-size: 1.5em;
     color: #fff;
     text-transform: uppercase;
@@ -31,9 +31,6 @@
 #logo:hover {
     color: #555;
     text-decoration: none;
-}
-.navbar-toggler {
-  margin-left: 400px;
 }
 body {
     padding-top: 60px;
@@ -73,7 +70,7 @@ h2 {
     margin-bottom: 30px;
     text-align: center;
     font-weight: normal;
-    color:white;
+    color: #777;
     font-family: Arial, sans-serif;
 }
   
