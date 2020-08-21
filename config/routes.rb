@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get 'form2/new'
   get 'form1s' => 'form1#new'
   post   'form1s'   => 'form1#create'
@@ -14,10 +16,13 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'newform1' => 'form1#new'
   get 'newform2' => 'form2#new'
+  get '/:token/confirm_email/', :to => "users#confirm_email", as: 'confirm_email'
   resources :users do
     resources :form1
     resources :form2
   end
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :articles do
     resources :comments
   end
