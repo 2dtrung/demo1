@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get 'form2/new'
   get 'form1s' => 'form1#new'
   post   'form1s'   => 'form1#create'
