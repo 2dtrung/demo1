@@ -2,6 +2,13 @@
 <html>
   <head>
     <title>Online Sales Management Website</title>
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+    integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,25 +20,30 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <%= favicon_link_tag asset_path('logo.png') %>
   </head>
   <body>
-    <header class="navbar navbar-light navbar-fixed-top" style="background-color: #9999ff;">
+    <header class="navbar navbar-default navbar-expand-lg navbar-dark bg-black navbar-fixed-top" style="background-color: #008080;">
       <div class="container">
-        <%= link_to "ONLINE SALES WEBSITE", root_url, id: "logo" %>
+        <%= link_to "WEBSITE", root_url,{:style=>'font-family: cursive;', :class => "css_class",id: "logo" } %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   root_url %></li>
-            <li><%= link_to "Help",   '#' %></li>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav navbar-right ">
+            <li><%= link_to "Home",   root_url,{:style=>'color:white;font-family:cursive;', :class => "css_class"} %></li>
             <% if logged_in? %>
-              <li><%= link_to "Users", current_user%></li>
-              <li><%= link_to "View", users_path%></li>
+              <li><%= link_to "Users", current_user,{:style=>'color:white; font-family:cursive;', :class => "css_class"}%></li>
+              <li><%= link_to "View", users_path,{:style=>'color:white;font-family:cursive;', :class => "css_class"}%></li>
               <li>
-                <%= link_to "Log out", logout_path, method: "delete" %>
+                <%= link_to "Log out", logout_path,{:style=>'color:white;font-family:cursive;', :class => "css_class", method: "delete"}%>
               </li>
             <% else %>
-              <li><%= link_to "Log in", login_path %></li>
+              <li><%= link_to "Log in", login_path,{:style=>'color:white;font-family:cursive;', :class => "css_class"} %></li>
             <% end %>
           </ul>
+          </div>
         </nav>
       </div>
     </header>

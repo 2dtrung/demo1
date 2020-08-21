@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'newform1' => 'form1#new'
   get 'newform2' => 'form2#new'
+  get '/:token/confirm_email/', :to => "users#confirm_email", as: 'confirm_email'
   resources :users do
     resources :form1
     resources :form2
   end
+  resources :account_activations, only: [:edit]
   resources :articles do
     resources :comments
   end
