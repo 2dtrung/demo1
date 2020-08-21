@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_025242) do
+ActiveRecord::Schema.define(version: 2020_08_21_050825) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_08_21_025242) do
     t.boolean "activated", default: false
     t.datetime "activated_at"
     t.string "remember_digest"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
   add_foreign_key "comments", "articles"
