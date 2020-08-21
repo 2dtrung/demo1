@@ -1,56 +1,100 @@
-<h1>BẢNG LƯƠNG LÀM VIỆC TẠI NHÀ</h1>
-<h1>DÀNH CHO NHÂN VIÊN LÀM VIỆC</h1>
-<h1>THEO HỢP ĐỒNG CÔNG TY</h1>
-<center>
-  <p class="text-uppercase">Income statement for working at home</p>
-  <p class="text-uppercase">(Type : Registered worker at a company)</p>
-</center>
-<p class="text-justify">Tên công ty/Company Name: <%= "Cohota"%></p>
-<p class="text-justify">Mã số thuế/Tax Code: <%= "35271819AFBM"%></p>
-<p class="text-justify">Địa chỉ/Address: <%= "Khu CNPM - ĐHQG, TH.HCM"%></p>
-<p class="text-justify">Họ và Tên nhân viên/Full Name: <%= current_user.name%></p>
-<p class="text-justify">Vị trí/Position: <%= "Tester"%></p>
-<table id="table2" class="display" style="width:100%">
-  <thead>
-    <tr>
-      <th>STT/No</th>
-      <th>Ngày/Date</th>
-      <th>Lương/Income</th>
-      <th>Nội dung công việc/Work Description</th>
-      <th>Ghi chú/Note</th>
-    </tr>
-  </thead>
-  <%count=1%>
-  <tbody>
-    <% @form2.each do |form2| %>
+<div id="docx">
+  <div id="report2" class="WordSection1">
+    <h1>BẢNG LƯƠNG LÀM VIỆC TẠI NHÀ</h1>
+    <h1>DÀNH CHO NHÂN VIÊN LÀM VIỆC</h1>
+    <h1>THEO HỢP ĐỒNG CÔNG TY</h1>
+    <center>
+      <p class="text-uppercase">Income statement for working at home</p>
+      <p class="text-uppercase">(Type : Registered worker at a company)</p>
+    </center>
+    <p class="text-justify">Tên công ty/Company Name: <%= "Cohota"%></p>
+    <p class="text-justify">Mã số thuế/Tax Code: <%= "35271819AFBM"%></p>
+    <p class="text-justify">Địa chỉ/Address: <%= "Khu CNPM - ĐHQG, TH.HCM"%></p>
+    <p class="text-justify">Họ và Tên nhân viên/Full Name: <%= current_user.name%></p>
+    <p class="text-justify">Vị trí/Position: <%= "Tester"%></p>
+    <table id="table2" class="table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <th>STT/No</th>
+          <th>Ngày/Date</th>
+          <th>Lương/Income</th>
+          <th>Nội dung công việc/Work Description</th>
+          <th>Ghi chú/Note</th>
+        </tr>
+      </thead>
+      <%count=1%>
+      <tbody>
+        <% @form2.each do |form2| %>
+          <tr>
+            <td><%= count%></td>
+            <td><%= form2.date %></td>
+            <td><%= form2.income %></td>
+            <td><%= form2.work_des%></td>
+            <td><%= "" %></td>
+            <%count+=1%>
+          </tr>
+        <% end %>
+      </tbody>
+      <%# <tfoot>
       <tr>
-        <td><%= count%></td>
-        <td><%= form2.date %></td>
-        <td><%= form2.income %></td>
-        <td><%= form2.work_des%></td>
-        <td><%= "" %></td>
-        <%count+=1%>
+        <th>STT/No</th>
+        <th>Ngày/Date</th>
+        <th>Lương/Income</th>
+        <th>Nội dung công việc/Work Description</th>
+        <th>Ghi chú/Note</th>
       </tr>
-    <% end %>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>STT/No</th>
-      <th>Ngày/Date</th>
-      <th>Lương/Income</th>
-      <th>Nội dung công việc/Work Description</th>
-      <th>Ghi chú/Note</th>
-    </tr>
-  </tfoot>
-</table>
-<br>
-<p class="text-justify">Xác nhận của nhân viên </p>
-<p class="text-justify">(ký ghi rõ họ tên)</p>
-<br>
+    </tfoot> %>
+    </table>
+    <br>
+    <p class="text-justify">Xác nhận của nhân viên </p>
+    <p class="text-justify">(ký ghi rõ họ tên)</p>
+    <br>
+  </div>
+</div>
 <%= link_to 'Back', current_user ,class: "btn btn-lg btn-info"%>
+<button type="button" class="btn btn-lg btn-info btn-lg" onclick="export2Word(window.docx)">Export to Word</button>
 <%= link_to 'Export to Excel', user_form2_index_url(format: :csv) ,class: "btn btn-lg btn-info"%>
-<script type="text/javascript">
+<button type="button" class="btn btn-lg btn-info btn-lg" id="downloadPDF">Export to PDF</button>
+<%# <script type="text/javascript">
   $(document).ready(function() {
       $('#table2').DataTable();
   } );
+</script> %>
+<script type="text/javascript">
+  $('#downloadPDF').click(function () {
+      domtoimage.toPng(document.getElementById('report2'))
+          .then(function (blob) {
+              var pdf = new jsPDF('l', 'pt', [$('#report2').width(), $('#report2').height()]);
+  
+              pdf.addImage(blob, 'PNG', 0, 0, $('#report2').width(), $('#report2').height());
+              pdf.save("report for company.pdf");
+  
+              that.options.api.optionsChanged();
+          });
+  });
+
+  function export2Word( element ) {
+  
+     var html, link, blob, url, css;
+  
+     css = (
+       '<style>' +
+       '@page WordSection1{size: 841.95pt 595.35pt;mso-page-orientation: landscape;}' +
+       'div.WordSection1 {page: WordSection1;}' +
+       '</style>'
+     );
+  
+     html = element.innerHTML;
+     blob = new Blob(['\ufeff', css + html], {
+       type: 'application/msword'
+     });
+     url = URL.createObjectURL(blob);
+     link = document.createElement('A');
+     link.href = url;
+     link.download = 'Report for Company.docx';  // default name without extension
+     document.body.appendChild(link);
+     if (navigator.msSaveOrOpenBlob ) navigator.msSaveOrOpenBlob( blob, 'Document.doc'); // IE10-11
+         else link.click();  // other browsers
+     document.body.removeChild(link);
+   };
 </script>
