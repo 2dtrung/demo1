@@ -44,7 +44,7 @@
           <ul class="nav navbar-nav navbar-right mr-auto">
             <li><%= link_to "Home",   root_url,{:style=>'color:white; font-family:cursive; float: right;', :class => "css_class"} %></li>
             <% if logged_in? %>
-              <li><%= link_to "Users", current_user,{:style=>'color:white; font-family:cursive; float: right;', :class => "css_class"}%></li>
+              <li><%= link_to "User", current_user,{:style=>'color:white; font-family:cursive; float: right;', :class => "css_class"}%></li>
               <li><%= link_to "View", users_path,{:style=>'color:white; font-family:cursive;float: right;', :class => "css_class"}%></li>
               <li>
                 <%= link_to "Log out", logout_path,{:style=>'color:white; font-family:cursive;float: right;', :class => "css_class",method: "delete"}  %>
