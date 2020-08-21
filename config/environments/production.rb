@@ -13,16 +13,17 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  # SMTP settings for gmail
+  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => ENV['gmail_username'],
-    :password             => ENV['gmail_password'],
-    :authentication       => "plain",
-    :enable_starttls_auto => true
-  }
+    :domain               => 'gmail.com',
+    :user_name            => 'sductrung',
+    :password             => 'trung24181999',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
