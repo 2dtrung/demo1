@@ -10,30 +10,29 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  config.action_mailer.perform_deliveries = true
+  config.consider_all_requests_local = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
   config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => "gmail.com",
-    :user_name => "sductrung",
-    :password => "trung24181999",
-    :authentication => "plain",
-    :enable_starttls_auto => true,
-  }
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'gmail.com',
+    :user_name            => 'onlinesalewebsite',
+    :password             => 'trung24181999',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.exceptions_app = self.routes
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join("tmp", "caching-dev.txt").exist?
+  if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      "Cache-Control" => "public, max-age=#{2.days.to_i}",
+      'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
     config.action_controller.perform_caching = false
