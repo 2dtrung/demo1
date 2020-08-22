@@ -49,10 +49,10 @@
 </div>
 <br>
 <br>
-<%= link_to 'Back', current_user ,class: "btn btn-lg btn-info"%>
-<button type="button" class="btn btn-lg btn-info btn-lg" onclick="export2Word(window.docx)">Export to Word</button>
-<%= link_to 'Export to Excel', user_form1_index_url(format: :csv) ,class: "btn btn-lg btn-info"%>
-<button type="button" class="btn btn-lg btn-info btn-lg" id="downloadPDF">Export to PDF</button>
+<%= link_to 'Back', current_user ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
+<button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" onclick="export2Word(window.docx)">Export to Word</button>
+<%= link_to 'Export to Excel', user_form1_index_url(format: :csv) ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
+<button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" id="downloadPDF">Export to PDF</button>
 <%# <script type="text/javascript">
   $(document).ready(function() {
       $('#table1').DataTable();

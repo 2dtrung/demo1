@@ -1,20 +1,23 @@
 <% provide(:title, 'All users') %>
-<h1 style="color: #0066cc;">Danh sách người dùng</h1>
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
+<h1 style="color: #0066cc; font-family: cursive">All Users</h1>
 <ul class="users">
   <% @user.each do |user| %>
     <li>
       <%= gravatar_for user, size: 50 %>
       <%if current_user.admin?%>
-        <%= link_to user.name, user %>
+        <%= link_to user.name, user , {:style=>'text-decoration: none;', :class => "css_class"} %>
         <% if current_user.admin? && !current_user?(user) %>
-          | <%= link_to "delete", user, method: :delete, 
-                                  data: { confirm: "You sure?" } %>
+          | <%= link_to "delete", user, {:style=>'font-style: italic; color: red;', :class => "css_class", method: :delete, data: { confirm: "You sure?" }}%>
         <% end %><br>
       <%else%>
         <p><%= user.name %></p>
       <%end%>
-      <%= user.email %><br/>
+      <%= user.email%><br/>
       <%= user.admin == true ? "Admin" : "Member"%><br/>
     </li>
   <% end %>
 </ul>
+</div>
+</div>

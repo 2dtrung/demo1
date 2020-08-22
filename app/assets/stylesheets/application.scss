@@ -28,6 +28,28 @@
     padding-top: 9px;
     font-weight: bold;
     }
+@media screen and (max-width: 800px){
+  #logo {
+    width: 300px;
+    margin-right: 300px;
+  }
+}
+@media screen and (max-width: 500px){
+  #logo {
+    width: 100px;
+    margin-right: 180px;
+  }
+}
+@media screen and (max-width: 400px){
+  #logo {
+    float: left;
+    width: 60px;
+    margin-right: 70x;
+  }
+  .navbar-toggler{
+    float: right;
+  }
+}
 #logo:hover {
     color: #555;
     text-decoration: none;

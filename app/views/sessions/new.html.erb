@@ -1,5 +1,5 @@
 <% provide(:title, "Log in") %>
-<h1>Sign in</h1>
+<h1 style="font-family: cursive;">Sign in</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -9,16 +9,16 @@
       <%= f.email_field :email, class: 'form-control' %>
 
       <%= f.label :password %>
-      <%= link_to "(forgot password)", new_password_reset_path %>
+      <%= link_to "(If you forgot password, click here!)", new_password_reset_path , {:style=>'font-family:cursive; font-style: italic;', :class => "css_class"}%>
       <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
         <span>Remember me on this computer</span>
       <% end %>
-      <%= f.submit "Sign in", class: "btn btn-info" %>
+      <%= f.submit "Sign in",{:style=>'font-family:cursive', :class => "css_class",class: "btn btn-warning"} %>
     <% end %>
 
-    <p>If you don't have an account? <%= link_to "Sign up now!", signup_path %></p>
+    <p style=" font-family: cursive;">If you don't have an account? <%= link_to "Sign up now!", signup_path, {:style=>'font-style: italic;', :class => "css_class"} %></p>
   </div>
 </div>

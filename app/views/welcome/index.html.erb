@@ -1,12 +1,12 @@
 <div class="center jumbotron">
-  <h1>Welcome to our website!</h1>
+  <h1 style = "font-family: cursive;">Welcome to our website!</h1>
 
   <h2>
-    This is homepage of online sales management website
+    This page is use for income management purpose ! If you haven't an account, click button below
     .
   </h2>
 
-  <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-info" %>
+  <%= link_to "Sign up!", signup_path, {:style=>'font-family:cursive', :class => "css_class",class: "btn btn-info"} %>
 </div>
 <div class="center">
 <%= link_to image_tag("online.jpg",class: "img-responsive", alt: "Rails logo", width: "1120", height: "550"),

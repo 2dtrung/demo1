@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Sales Management Website</title>
+    <title>Income Management Website</title>
     <link rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
     integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
@@ -34,7 +34,10 @@
 
   <body>
     <header class="navbar navbar-default navbar-expand-lg navbar-light navbar-fixed-top" style="background-color: #9999ff;">
-      <div class="container" style="@media screen and (max-width: 800px){margin-left: -50px;}@media screen and (max-width: 800px){margin-left: 200px;}">
+      <div class="container">
+        <a style="float: left;" href="#" class="navbar-brand">
+          <%= link_to image_tag("logo.png",class: "img-responsive", alt: "Rails logo", width: "30", height: "30") %>
+        </a>
         <%= link_to "WEBSITE", root_url, id: "logo" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
