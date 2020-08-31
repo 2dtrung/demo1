@@ -12,7 +12,28 @@ class Form1Controller < ApplicationController
   end
 
   def show
-    @form1 = Form1.where(user_id: current_user.id)
+    @form1 = Form1.all
+  end
+
+  def edit
+    @form1 = Form1.find(params[:id])
+  end
+
+  def update
+    @form1 = Form1.find(params[:id])
+    if @form1.update(form1_params)
+      # Handle a successful update.
+      flash[:success] = "Form updated"
+      redirect_to current_user
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @form1 = Form1.find(params[:id])
+    @form1.destroy
+    redirect_to user_form1_path
   end
 
   def create
@@ -27,6 +48,6 @@ class Form1Controller < ApplicationController
   private
 
   def form1_params
-    params.require(:form1).permit(:name, :time_work, :job, :date, :customer, :income, :work_des)
+    params.require(:form1).permit(:name, :time_work, :job, :date, :customer, :income, :work_des, :role_ids => [])
   end
 end

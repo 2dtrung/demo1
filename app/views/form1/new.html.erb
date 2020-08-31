@@ -1,31 +1,31 @@
 <% provide(:title, 'Sign up') %>
-<h1 style="font-family: cursive;">Input information</h1>
+<h1 style="font-family: cursive;">Điền Thông tin</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@form1) do |f| %>
-      <%= f.label :name %>
+      <%= f.label :name, "Họ và Tên" %>
       <%= f.text_field :name %>
 
-      <%= f.label :time_work %>
+      <%= f.label :time_work, "Thời gian" %>
       <%= f.text_field :time_work %>
 
-      <%= f.label :job %>
+      <%= f.label :job, "Công việc" %>
       <%= f.text_field :job %>
 
-      <%= f.label :date %>
+      <%= f.label :date, "Ngày" %>
       <%= f.date_field :date %>
 
-      <%= f.label :customer %>
+      <%= f.label :customer, "Khách hàng" %>
       <%= f.text_field :customer %>
 
-      <%= f.label :income %>
+      <%= f.label :income, "Thu nhập" %>
       <%= f.number_field :income %>
 
-      <%= f.label "Work description" %>
+      <%= f.label "Mô tả công việc" %>
       <%= f.text_field :work_des %>
 
-      <%= f.submit "Submit",{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-warning"} %>
+      <%= f.submit "Xác nhận",{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-warning"} %>
     <% end %>
   </div>
 </div>

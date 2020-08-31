@@ -2,47 +2,47 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        Welcome!
+      <h1 style="font-family: fantasy; font-weight: bold; font-size:25px;" >
+        <%#= gravatar_for @user %>
+        Thông tin cá nhân!
         <br>
-        <%= @user.name %>
+        Tên: <%= @user.name %>
         <br>
-        <%= @user.email %>
+        Email: <%= @user.email %>
       </h1>
     </section>
   </aside>
 </div>
 <div class="user_center">
   <h3>
-    If you work as  
-    <a style="font-style: italic;" href="https://drive.google.com/file/d/1ucGjhLwVx-uzawQq8bTESnhm36o594Po/view">Freelancer</a>
-    (click to Sample form).
+    Nếu bạn làm việc  
+    <a style="font-style: italic;" href="https://drive.google.com/file/d/1ucGjhLwVx-uzawQq8bTESnhm36o594Po/view">tự do</a>
+    (chọn bảng mẫu).
   </h3>
-  <%= link_to "Submit information", new_user_form1_url(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}   %>
-  <%= link_to "View information", user_form1_url(current_user), {:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}%>
+  <%= link_to "Điền thông tin", new_user_form1_url(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}   %>
+  <%= link_to "Xem thông tin", user_form1_url(current_user), {:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}%>
   <h3>
-    If you work as 
-    <a style="font-style: italic;" href="https://drive.google.com/file/d/1CoOf9gD-YRsq83h7UlNIyRyct5RFmAdM/view">Employee for Company</a>
-    (click to Sample form).
+    Nếu bạn làm việc 
+    <a style="font-style: italic;" href="https://drive.google.com/file/d/1CoOf9gD-YRsq83h7UlNIyRyct5RFmAdM/view">cho công ty</a>
+    (chọn bảng mẫu).
   </h3>
-  <%= link_to "Submit information", new_user_form2_url(current_user),{:style=>'color:white; font-family:cursive; ', :class => "css_class",class: "btn btn-lg btn-primary"}   %>
-  <%= link_to "View information", user_form2_url(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}  %>
+  <%= link_to "Điền thông tin", new_user_form2_url(current_user),{:style=>'color:white; font-family:cursive; ', :class => "css_class",class: "btn btn-lg btn-primary"}   %>
+  <%= link_to "Xem thông tin", user_form2_url(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}  %>
 </div>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 <div class="carousel-inner">
 <div class="carousel-item active">
-<h2 style="color: blue; font-weight:bold;">Freelancer</h2>
+<h2 style="color: blue; font-weight:bold;">Người làm tự do</h2>
 <table id="table1" class="table table-striped table-bordered" style="width:100%">
   <thead>
     <tr>
       <th>STT</th>
-      <th>Time</th>
-      <th>Job</th>
-      <th>Date</th>
-      <th>Customer</th>
-      <th>Income</th>
-      <th>Work description</th>
+      <th>Thời gian</th>
+      <th>Công việc</th>
+      <th>Ngày</th>
+      <th>Khách hàng</th>
+      <th>Thu nhập</th>
+      <th>Mô tả công việc</th>
     </tr>
   </thead>
   <%count=1%>
@@ -62,7 +62,7 @@
   </tbody>
   <tfoot>
     <tr>
-      <th>Total:</th>
+      <th>Tổng thu nhập:</th>
       <th colspan="6" style="text-align:center"></th>
     </tr>
   </tfoot>
@@ -99,7 +99,7 @@
   
             // Update footer
             $( api.column( 5 ).footer() ).html(
-                pageTotal +' (total: '+ total +')'
+                pageTotal +' (Tổng: '+ total +')'
             );
         }
       });
@@ -107,18 +107,18 @@
 </script>
 </div>
 <div class="carousel-item">
-<h2 style="color: blue; font-weight:bold;">Work for Company</h2>
+<h2 style="color: blue; font-weight:bold;">Nhân viên công ty</h2>
 <table id="table2" class="table table-striped table-bordered" style="width:100%">
   <thead>
     <tr>
       <th>STT</th>
-      <th>Company Name</th>
-      <th>Tax code</th>
-      <th>Address</th>
-      <th>Position</th>
-      <th>Date</th>
-      <th>Income</th>
-      <th>Work description</th>
+      <th>Tên công ty</th>
+      <th>Mã Tax</th>
+      <th>Địa chỉ</th>
+      <th>Vị trí công việc</th>
+      <th>Ngày</th>
+      <th>Thu nhập</th>
+      <th>Mô tả công việc</th>
     </tr>
   </thead>
   <%count=1%>
@@ -139,7 +139,7 @@
   </tbody>
   <tfoot>
     <tr>
-      <th>Total:</th>
+      <th>Tổng thu nhập:</th>
       <th colspan="7" style="text-align:center"></th>
     </tr>
   </tfoot>
@@ -176,7 +176,7 @@
   
             // Update footer
             $( api.column( 6 ).footer() ).html(
-                pageTotal +' (total: '+ total +')'
+                pageTotal +' (Tổng: '+ total +')'
             );
         }
       });
@@ -185,12 +185,11 @@
 </div>
 <a class="carousel-control-prev" style="width: 2%;" href="#carouselExampleControls" role="button" data-slide="prev">
     <span style="filter: invert(100%);" class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Trước</span>
 </a>
 <a class="carousel-control-next" style="width: 2%;" href="#carouselExampleControls" role="button" data-slide="next">
     <span style="filter: invert(100%);" class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+    <span class="sr-only">Kế tiếp</span>
 </a>
 </div>
 </div>
-// This is a comment

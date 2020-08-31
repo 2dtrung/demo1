@@ -1,7 +1,7 @@
 <% provide(:title, 'All users') %>
 <div class="jumbotron jumbotron-fluid">
 <div class="container">
-<h1 style="color: #0066cc; font-family: cursive">All Users</h1>
+<h1 style="color: #0066cc; font-family: cursive">Danh sách người dùng</h1>
 <ul class="users">
   <% @user.each do |user| %>
     <li>
@@ -15,7 +15,7 @@
         <p><%= user.name %></p>
       <%end%>
       <%= user.email%><br/>
-      <%= user.admin == true ? "Admin" : "Member"%><br/>
+      <%= user.admin == true ? "Admin" : "Thành viên"%><br/>
     </li>
   <% end %>
 </ul>
