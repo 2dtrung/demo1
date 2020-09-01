@@ -24,7 +24,7 @@ class Form2Controller < ApplicationController
     if @form2.update(form2_params)
       # Handle a successful update.
       flash[:success] = "Form updated"
-      redirect_to current_user
+      redirect_to user_form2_path
     else
       render "edit"
     end
@@ -38,6 +38,7 @@ class Form2Controller < ApplicationController
 
   def create
     @form2 = Form2.new(form2_params.merge(user_id: current_user.id))
+    @form2.image.attach(params[:form2][:image])
     if @form2.save
       redirect_to current_user
     else
@@ -48,6 +49,6 @@ class Form2Controller < ApplicationController
   private
 
   def form2_params
-    params.require(:form2).permit(:company_name, :tax_code, :address, :name, :position, :date, :work_des, :income, :role_ids => [])
+    params.require(:form2).permit(:company_name, :tax_code, :address, :name, :position, :date, :work_des, :income, :image, :role_ids => [])
   end
 end

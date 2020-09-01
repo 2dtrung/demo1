@@ -19,8 +19,10 @@
         <%= f.text_field :work_des %>
         <%= f.label :income, "Thu nhập" %>
         <%= f.number_field :income %>
-        <%# = f.label :note, "Ghi chú" %>
-        <%# = f.text_field :note %>
+        <span class="content">
+          <%= f.label :image, "Hình ảnh xác nhận" %>
+          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+        </span>
         <%= f.submit "Cập nhật", class: "btn btn-primary" %>
       <% end %>
     </div>

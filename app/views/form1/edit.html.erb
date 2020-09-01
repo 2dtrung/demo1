@@ -3,21 +3,25 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @form1, url: {action: "update"} do |f| %>
       <%#= form_with method: :post, url: form1s_path, local: true do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name, value: @form1.name%>
-      <%= f.label :time %>
-      <%= f.text_field :time, value: @form1.time_work %>
-      <%= f.label :job %>
-      <%= f.text_field :job, value: @form1.job %>
-      <%= f.label :date %>
-      <%= f.date_field :date, value: @form1.date %>
-      <%= f.label :customer %>
-      <%= f.text_field :customer, value: @form1.customer %>
-      <%= f.label :income %>
-      <%= f.number_field :income, value: @form1.income %>
-      <%= f.label "Description" %>
-      <%= f.text_field :work_desc, value: @form1.work_des %>
-      <%= f.submit "Cập nhật", class: "btn btn-primary" %>
-    <% end %>
+        <%= f.label :name, "Họ và Tên" %>
+        <%= f.text_field :name, value: @form1.name%>
+        <%= f.label :time, "Thời gian" %>
+        <%= f.text_field :time_work, value: @form1.time_work %>
+        <%= f.label :job, "Công Việc" %>
+        <%= f.text_field :job, value: @form1.job %>
+        <%= f.label :date, "Ngày" %>
+        <%= f.date_field :date, value: @form1.date %>
+        <%= f.label :customer, "Khách hàng" %>
+        <%= f.text_field :customer, value: @form1.customer %>
+        <%= f.label :income, "Thu nhập" %>
+        <%= f.number_field :income, value: @form1.income %>
+        <%= f.label :work_des, "Mô tả công việc" %>
+        <%= f.text_field :work_des, value: @form1.work_des %>
+        <span class="content">
+          <%= f.label :image, "Hình ảnh xác nhận" %>
+          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+        </span>
+        <%= f.submit "Cập nhật", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
-</div>

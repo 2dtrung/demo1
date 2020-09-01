@@ -22,19 +22,23 @@
           <th>Khách hàng/Customer</th>
           <th>Số tiền/Income</th>
           <th>Nội dung/Description</th>
-          <th>Xác nhận/Signature</th>
+          <th>Chữ ký/Signature</th>
         </tr>
       </thead>
       <%count=1%>
       <tbody>
-        <% @form1.each do |form1| %>
+        <% current_user.form1s.each do |form1| %>
           <tr>
             <td><%= count%></td>
             <td><%= form1.date %></td>
             <td><%= form1.customer %></td>
             <td><%= form1.income %></td>
             <td><%= form1.work_des %></td>
-            <td><%= "" %></td>
+            <td>
+              <span class="content">
+                <%= image_tag form1.display_image if form1.image.attached? %>
+              </span>
+            </td>
             <td><%= link_to "Chỉnh sửa", "/users/#{current_user.id}/form1/#{form1.id}/edit" %></td>
             <td> <%= link_to 'Xóa', "/users/#{current_user.id}/form1/#{form1.id}/",
                method: :delete,
@@ -72,26 +76,26 @@
   
   function export2Word( element ) {
   
-     var html, link, blob, url, css;
+    var html, link, blob, url, css;
   
-     css = (
-       '<style>' +
-       '@page WordSection1{size: 841.95pt 595.35pt;mso-page-orientation: landscape;}' +
-       'div.WordSection1 {page: WordSection1;}' +
-       '</style>'
-     );
+    css = (
+      '<style>' +
+      '@page WordSection1{size: 841.95pt 595.35pt;mso-page-orientation: landscape;}' +
+      'div.WordSection1 {page: WordSection1;}' +
+      '</style>'
+    );
   
-     html = element.innerHTML;
-     blob = new Blob(['\ufeff', css + html], {
-       type: 'application/msword'
-     });
-     url = URL.createObjectURL(blob);
-     link = document.createElement('A');
-     link.href = url;
+    html = element.innerHTML;
+    blob = new Blob(['\ufeff', css + html], {
+      type: 'application/msword'
+    });
+    url = URL.createObjectURL(blob);
+    link = document.createElement('A');
+    link.href = url;
      link.download = 'Report for Freelncer.docx';  // default name without extension
-     document.body.appendChild(link);
+    document.body.appendChild(link);
      if (navigator.msSaveOrOpenBlob ) navigator.msSaveOrOpenBlob( blob, 'Document.doc'); // IE10-11
          else link.click();  // other browsers
-     document.body.removeChild(link);
-   };
+    document.body.removeChild(link);
+  };
 </script>

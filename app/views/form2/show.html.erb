@@ -38,11 +38,12 @@
             <td><%= form2.date %></td>
             <td><%= form2.income %></td>
             <td><%= form2.work_des%></td>
-            <td><%= "" %></td>
-            <td><%= link_to "Edit", "/users/#{current_user.id}/form2/#{form2.id}/edit" %></td>
-            <td> <%= link_to 'Xóa', "/users/#{current_user.id}/form2/#{form2.id}/",
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %></td>
+            <td><span class="content">
+                <%= image_tag form2.display_image if form2.image.attached? %>
+              </span>
+            </td>
+            <td><%= link_to "Chỉnh sửa", "/users/#{current_user.id}/form2/#{form2.id}/edit" %></td>
+            <td> <%= link_to 'Xóa', "/users/#{current_user.id}/form2/#{form2.id}/", method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <%count+=1%>
           </tr>
         <% end %>

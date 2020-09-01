@@ -1,23 +1,21 @@
 <% provide(:title, 'Sign up') %>
 <h1 style="font-family: cursive;">Đăng ký</h1>
-
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
-
       <%= f.label :name, "Tên"%>
       <%= f.text_field :name, class: 'form-control' %>
-
       <%= f.label :Email %>
       <%= f.email_field :email, class: 'form-control' %>
-
       <%= f.label :password, "Mật khẩu"%>
       <%= f.password_field :password, class: 'form-control' %>
-
       <%= f.label :password_confirmation, "Xác nhận mật khẩu" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
+      <span class="image">
+        <%= f.label :image, "Avatar" %>
+        <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+      </span>
       <%= f.submit "Tạo tài khoản", {:style=>'font-family:cursive', :class => "css_class",class: "btn btn-warning"} %>
     <% end %>
   </div>

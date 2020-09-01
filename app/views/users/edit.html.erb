@@ -5,13 +5,17 @@
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages' %>
       <%= f.label :name, "Tên" %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control'%>
       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', :disabled => true %>
       <%= f.label :password, "Mật khẩu" %>
       <%= f.password_field :password, class: 'form-control' %>
       <%= f.label :password_confirmation, "Xác nhận mật khẩu" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <span class="content">
+        <%= f.label :image, "Avatar mới" %>
+        <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+      </span>
       <%= f.submit "Cập nhật", class: "btn btn-primary" %>
     <% end %>
   </div>
