@@ -1,9 +1,9 @@
 class Form2 < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  validates :company_name, presence: true, length: { maximum: 50 }
-  validates :address, presence: true, length: { maximum: 50 }
-  validates :name, presence: true, length: { maximum: 50 }
+  # validates :company_name, presence: true, length: { maximum: 50 }
+  # validates :address, presence: true, length: { maximum: 50 }
+  # validates :name, presence: true, length: { maximum: 50 }
 
   # Returns a resized image for display.
   def display_image

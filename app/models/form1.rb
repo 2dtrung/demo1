@@ -3,9 +3,9 @@ require "csv"
 class Form1 < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  validates :name, presence: true, length: { maximum: 50 }
-  validates :time_work, presence: true, length: { maximum: 50 }
-  validates :job, presence: true, length: { maximum: 50 }
+  # validates :name, presence: true, length: { maximum: 50 }
+  # validates :time_work, presence: true, length: { maximum: 50 }
+  # validates :job, presence: true, length: { maximum: 50 }
 
   # Returns a resized image for display.
   def display_image

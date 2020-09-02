@@ -1,27 +1,17 @@
-<h1>Cập nhật Bảng Mẫu</h1>
+<h1>Cập nhật Bảng Mẫu Làm cho Công Ty</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @form2, url: {action: "update"} do |f| %>
       <%#= form_with method: :post, url: form1s_path, local: true do |f| %>
-        <%= f.label :company_name, "Tên công ty"%>
-        <%= f.text_field :company_name %>
-        <%= f.label :tax_code, "Mã tax" %>
-        <%= f.text_field :tax_code %>
-        <%= f.label :address, "Địa chỉ" %>
-        <%= f.text_field :address %>
-        <%= f.label :name, "Họ và Tên"%>
-        <%= f.text_field :name %>
-        <%= f.label :position, "Công Việc" %>
-        <%= f.text_field :position %>
         <%= f.label :date, "Ngày" %>
-        <%= f.date_field :date, value: @form2.date %>
+        <%= f.date_field :date, value: @form2.date, class:"form-control", type:"datetime-local"%>
         <%= f.label "Mô tả công việc" %>
         <%= f.text_field :work_des %>
         <%= f.label :income, "Thu nhập" %>
         <%= f.number_field :income %>
         <span class="content">
           <%= f.label :image, "Hình ảnh xác nhận" %>
-          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png"%>
         </span>
         <%= f.submit "Cập nhật", class: "btn btn-primary" %>
       <% end %>
