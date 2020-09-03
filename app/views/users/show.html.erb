@@ -6,16 +6,17 @@
 <div class="row">
   <aside class="col-md-10">
     <section class="user_info">
-      <h1 style="font-family: fantasy; font-weight: bold; font-size:25px;" >
-        <%#= gravatar_for @user %>
-        Thông tin cá nhân!
-        <br>
-        Tên: <%= @user.name %>
-        <br>
-        Email: <%= @user.email %>
-        <span class="content">
+      <h1 style="font-family: arial; font-weight: bold; font-size:1.5em;" >
+        <div class="profile-container1">
           <%= image_tag @user.display_image if @user.image.attached? %>
-        </span>
+        </div>
+        <div class="profile-container2">
+          Thông tin cá nhân!
+          <br>
+          Tên: <%= @user.name %>
+          <br>
+          Email: <%= @user.email %>
+        </div>
       </h1>
     </section>
   </aside>

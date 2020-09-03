@@ -26,7 +26,7 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
   def display_image
-    image.variant(resize_to_limit: [200, 200])
+    image.variant(resize_to_limit: [100, 100])
   end
   # Forgets a user.
   def forget

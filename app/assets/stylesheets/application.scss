@@ -17,7 +17,10 @@
  @import "bootstrap";
 
 
-
+ .container-fluid {
+   padding-left: 0px;
+   padding-right: 0px;
+ }
  #logo {
     float: left;
     width: 100px;
@@ -203,6 +206,7 @@ td {
 aside {
     section.user_info {
       margin-top: 20px;
+
     }
     section {
       padding: 10px 0;
@@ -589,7 +593,7 @@ aside {
 .home-edit {
   position: absolute;
   top: 250px;
-  left: 300px;
+  left: 450px;
 }
 .home-edit-profile {
   position: absolute;
@@ -610,6 +614,9 @@ aside {
 .pagination {
   margin-top: 0px;
   padding-left: 20px;
+}
+.profile-container1 {
+  float: left;
 }
 @media screen and (max-width: 1025px){
   .header-menu {
@@ -658,8 +665,5 @@ aside {
     float: left;
     width: 60px;
     margin-right: 70x;
-  }
-  .navbar-toggler{
-    float: right;
   }
 }
