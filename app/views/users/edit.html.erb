@@ -1,0 +1,25 @@
+<% provide(:title, "Edit user") %>
+<div class="edit-container">
+<h1>Cập nhật thông tin cá nhân</h1>
+<div class="home-edit">
+    <%= link_to image_tag("vector.png",class: "img-responsive") %>
+</div>
+<div class="home-edit-profile">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <%= form_with(model: @user, local: true) do |f| %>
+                <%= render 'shared/error_messages' %>
+                <%= f.label :name, "Tên" %>
+                <%= f.text_field :name, class: 'form-control' %>
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control', :disabled => true %>
+                <%= f.label :password, "Mật khẩu" %>
+                <%= f.password_field :password, class: 'form-control' %>
+                <%= f.label :password_confirmation, "Xác nhận mật khẩu" %>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+                <%= f.submit "Cập nhật", class: "btn btn-primary" %>
+            <% end %>
+        </div>
+    </div>
+</div>
+</div>

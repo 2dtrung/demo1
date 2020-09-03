@@ -35,32 +35,48 @@
   <body>
     <header class="navbar navbar-default navbar-expand-lg navbar-light navbar-fixed-top" style="background-color: #9999ff;">
       <div class="container">
-        <a style="float: left;" href="#" class="navbar-brand">
+        <div class="header-logo">
           <%= link_to image_tag("logo.png",class: "img-responsive", alt: "Rails logo", width: "30", height: "30") %>
-        </a>
-        <%= link_to "WEBSITE", root_url, id: "logo" %>
+        </div>
+        <div class="header-name">
+        <%= link_to "NLS", root_url, id: "logo" %>
+        </div>
+        <div class="header-menu">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
         </button>
         <nav style="width: 700px; margin-left: 100px; @media screen and (max-width: 800px){margin-left: 500px;}">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="nav navbar-nav navbar-right mr-auto">
-            <li><%= link_to "Home",   root_url,{:style=>'color:white; font-family:cursive; float: right;', :class => "css_class"} %></li>
+            <li><%= link_to "Trang chủ",   root_url,{:style=>'color:white; font-family:monospace; float: right;', :class => "css_class"} %></li>
             <% if logged_in? %>
-              <li><%= link_to "User", current_user,{:style=>'color:white; font-family:cursive; float: right;', :class => "css_class"}%></li>
-              <li><%= link_to "View", users_path,{:style=>'color:white; font-family:cursive;float: right;', :class => "css_class"}%></li>
-              <li>
-                <%= link_to "Log out", logout_path,{:style=>'color:white; font-family:cursive;float: right;', :class => "css_class",method: "delete"}  %>
+              <li id="fat-menu" class="dropdown">
+                <a style="color:white; font-family:monospace;" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Tài khoản
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Hồ sơ", current_user,{:style=>'color:black; font-family:arial; float: left;', :class => "css_class"}%></li>
+                  <li><%= link_to "Chỉnh sửa", edit_user_path(current_user), {:style=>'color:black; font-family:arial; float: left;', :class => "css_class"} %></li>
+                  <li><%= link_to "Báo cáo thu nhập", report_path(current_user), {:style=>'color:black; font-family:arial; float: left;', :class => "css_class"} %></li>
+                  <%if current_user.admin?%>
+                    <li><%= link_to "Quản lý người dùng", users_path,{:style=>'color:black; font-family:arial;float: left;', :class => "css_class"}%></li>
+                  <%end%>
+                  <li class="divider" style="float:left;"></li>
+                  <li>
+                    <%= link_to "Đăng xuất", logout_path,{:style=>'color:black; font-family:arial;float: left;', :class => "css_class",method: "delete"}  %>
+                  </li>
+                </ul>
               </li>
             <% else %>
-              <li><%= link_to "Log in", login_path ,{:style=>'color:white; font-family:cursive;float: right;', :class => "css_class"}%></li>
+              <li><%= link_to "Đăng nhập", login_path ,{:style=>'color:white; font-family:monospace;float: right;', :class => "css_class"}%></li>
             <% end %>
           </ul>
           </div>
         </nav>
+        </div>
       </div>
     </header>
-    <div class="container">
+    <div class="container1">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
