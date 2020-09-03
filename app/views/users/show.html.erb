@@ -6,13 +6,16 @@
 <div class="row">
   <aside class="col-md-10">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        Xin chào!
+      <h1 style="font-family: fantasy; font-weight: bold; font-size:25px;" >
+        <%#= gravatar_for @user %>
+        Thông tin cá nhân!
         <br>
-        <%= @user.name %>
+        Tên: <%= @user.name %>
         <br>
-        <%= @user.email %>
+        Email: <%= @user.email %>
+        <span class="content">
+          <%= image_tag @user.display_image if @user.image.attached? %>
+        </span>
       </h1>
     </section>
   </aside>
@@ -41,6 +44,7 @@
       </h3>
       <%= link_to "Nhập thông tin", new_user_form2_url(current_user),{:style=>'color:white; font-family:cursive; ', :class => "css_class",class: "btn btn-lg btn-primary"}   %>
       <%= link_to "Xem thông tin", user_form2_url(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}  %>
+      <%= link_to "Nhập thông tin công ty", new_user_company_path(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}  %>
     </div>
   </div>
 </div>

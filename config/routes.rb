@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   get 'newform1' => 'form1#new'
   get 'newform2' => 'form2#new'
   get '/:token/confirm_email/', :to => "users#confirm_email", as: 'confirm_email'
+  # post '/users/:user_id/companies/:id', :to => "companies#destroy"
   resources :users do
     resources :form1
     resources :form2
+    resources :companies
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]

@@ -2,6 +2,8 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :form1s, dependent: :destroy
   has_many :form2s, dependent: :destroy
+  has_many :companies, dependent: :destroy
+  has_one_attached :image
   before_create :create_activation_digest
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
@@ -22,6 +24,9 @@ class User < ApplicationRecord
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
+  end
+  def display_image
+    image.variant(resize_to_limit: [200, 200])
   end
   # Forgets a user.
   def forget

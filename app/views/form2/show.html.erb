@@ -7,12 +7,12 @@
       <p class="text-uppercase">Income statement for working at home</p>
       <p class="text-uppercase">(Type : Registered worker at a company)</p>
     </center>
-    <% if current_user.form1s.any? %>
-      <p class="text-justify">Tên công ty/Company Name: <%= current_user.form2s.last.company_name%></p>
-      <p class="text-justify">Mã số thuế/Tax Code: <%= current_user.form2s.last.tax_code%></p>
-      <p class="text-justify">Địa chỉ/Address: <%= current_user.form2s.last.address%></p>
+    <% if current_user.companies.any? %>
+      <p class="text-justify">Tên công ty/Company Name: <%= current_user.companies.last.company_name%></p>
+      <p class="text-justify">Mã số thuế/Tax Code: <%= current_user.companies.last.tax_code%></p>
+      <p class="text-justify">Địa chỉ/Address: <%= current_user.companies.last.address%></p>
       <p class="text-justify">Họ và Tên nhân viên/Full Name: <%= current_user.name%></p>
-      <p class="text-justify">Vị trí/Position: <%= current_user.form2s.last.position%></p>
+      <p class="text-justify">Vị trí/Position: <%= current_user.companies.last.position%></p>
     <%else%>
       <p class="text-justify">Tên công ty/Company Name: <%= "Blank"%></p>
       <p class="text-justify">Mã số thuế/Tax Code: <%= "Blank"%></p>
@@ -36,9 +36,14 @@
           <tr>
             <td><%= count%></td>
             <td><%= form2.date %></td>
-            <td><%= form2.income %></td>
+            <td><%= number_to_currency(form2.income, :unit => "$", :separator => ".", :delimiter => ",") %></td>
             <td><%= form2.work_des%></td>
-            <td><%= "" %></td>
+            <td><span class="content">
+                <%= image_tag form2.display_image if form2.image.attached? %>
+              </span>
+            </td>
+            <td><%= link_to "Chỉnh sửa", "/users/#{current_user.id}/form2/#{form2.id}/edit" %></td>
+            <td> <%= link_to 'Xóa', "/users/#{current_user.id}/form2/#{form2.id}/", method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <%count+=1%>
           </tr>
         <% end %>
@@ -59,7 +64,7 @@
     <br>
   </div>
 </div>
-<%= link_to 'Back', current_user ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
+<%= link_to 'Trở về', current_user ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
 <button style="font-family: cursive;"type="button" class="btn btn-lg btn-primary btn-lg" onclick="export2Word(window.docx)">Export to Word</button>
 <%= link_to 'Export to Excel', user_form2_index_url(format: :csv) ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
 <button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" id="downloadPDF">Export to PDF</button>

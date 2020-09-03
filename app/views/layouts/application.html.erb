@@ -58,6 +58,7 @@
                   <li><%= link_to "Hồ sơ", current_user,{:style=>'color:black; font-family:arial; float: left;', :class => "css_class"}%></li>
                   <li><%= link_to "Chỉnh sửa", edit_user_path(current_user), {:style=>'color:black; font-family:arial; float: left;', :class => "css_class"} %></li>
                   <li><%= link_to "Báo cáo thu nhập", report_path(current_user), {:style=>'color:black; font-family:arial; float: left;', :class => "css_class"} %></li>
+                  <li><%= link_to "Quản lý danh sách công ty", user_companies_path(current_user), {:style=>'color:black; font-family:arial; float: left;', :class => "css_class"} %></li>
                   <%if current_user.admin?%>
                     <li><%= link_to "Quản lý người dùng", users_path,{:style=>'color:black; font-family:arial;float: left;', :class => "css_class"}%></li>
                   <%end%>
