@@ -1,13 +1,19 @@
 <% provide(:title, "Forgot password") %>
-<h1>Forgot password</h1>
-
-<div class="row">
+<div class="home-login">
+  <%= link_to image_tag("home1.png",class: "img-responsive") %>
+</div>
+<div class="container-login">
+<div class="row justify-content-center">
+  <div class="container-row-login">
   <div class="col-md-6 col-md-offset-3">
+    <h1 style="font-family: monospace;">Quên mật khẩu</h1>
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= f.submit "Gửi yêu cầu", class: "btn btn-primary" %>
     <% end %>
   </div>
+  </div>
+</div>
 </div>

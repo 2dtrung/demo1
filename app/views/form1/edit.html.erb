@@ -1,0 +1,21 @@
+<h1>Cập nhật Bảng Mẫu Làm Tự Do</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @form1, url: {action: "update"} do |f| %>
+      <%#= form_with method: :post, url: form1s_path, local: true do |f| %>
+        <%= f.label :date, "Ngày" %>
+        <%= f.date_field :date, value: @form1.date, class:"form-control", type:"datetime-local"%>
+        <%= f.label :customer, "Khách hàng" %>
+        <%= f.text_field :customer, value: @form1.customer, class:"form-control form-control-lg"%>
+        <%= f.label :income, "Thu nhập" %>
+        <%= f.number_field :income, value: @form1.income, class:"form-control form-control-lg" %>
+        <%= f.label :work_des, "Mô tả công việc" %>
+        <%= f.text_field :work_des, value: @form1.work_des, class:"form-control form-control-lg" %>
+        <span class="content">
+          <%= f.label :image, "Hình ảnh xác nhận" %>
+          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+        </span>
+        <%= f.submit "Cập nhật", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>

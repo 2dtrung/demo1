@@ -1,8 +1,12 @@
 class Form2 < ApplicationRecord
   belongs_to :user
-  validates :company_name, presence: true, length: { maximum: 50 }
-  validates :address, presence: true, length: { maximum: 50 }
-  validates :name, presence: true, length: { maximum: 50 }
+  has_one_attached :image
+  # validates :company_name, presence: true, length: { maximum: 50 }
+  # validates :address, presence: true, length: { maximum: 50 }
+  # validates :name, presence: true, length: { maximum: 50 }
+  def display_image
+    image.variant(resize_to_limit: [200, 200])
+  end
   def self.as_csv
     CSV.generate("\uFEFF") do |csv|
       columns = %w(company_name tax_code address name position date work_des income)

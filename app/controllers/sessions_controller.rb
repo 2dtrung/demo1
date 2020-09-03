@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         redirect_to root_url
       end
     else
-      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash[:danger] = 'Tài khoản/Mật khẩu bạn điền bị sai' # Not quite right!
       render 'new'
     end
   end

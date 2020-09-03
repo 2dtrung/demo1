@@ -1,24 +1,29 @@
 <% provide(:title, "Log in") %>
-<h1>Sign in</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="home-login">
+  <%= link_to image_tag("home1.png",class: "img-responsive") %>
+</div>
+<div class="container-login">
+<div class="row justify-content-center">
+  <div class="container-row-login">
+  <div class=".col-md-6 .offset-md-3">
+    <h1 style="font-family: monospace;">Đăng nhập</h1>
     <%= form_for(:session, url: login_path) do |f| %>
 
       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', placeholder:'Nhập email của bạn' %>
 
-      <%= f.label :password %>
-      <%= link_to "(forgot password)", new_password_reset_path %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label "Mật khẩu" %>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Nhập mật khẩu của bạn'%>
 
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
+        <span>Lưu tài khoản trên website</span>
       <% end %>
-      <%= f.submit "Sign in", class: "btn btn-info" %>
+      <%= f.submit "Đăng nhập",{:style=>'font-family:arial', :class => "css_class",class: "btn btn-warning"} %>
     <% end %>
-
-    <p>If you don't have an account? <%= link_to "Sign up now!", signup_path %></p>
+    <%= link_to "Quên mật khẩu?", new_password_reset_path , {:style=>'font-family:monospace; font-style: italic; margin-left: 130px;', :class => "css_class"}%>
+    <p style=" font-family: arial; border-top: 1px dotted silver; margin-bottom: 0px; margin-top: 10px;">Nếu bạn không có tài khoản? <%= link_to "Đăng kí ngay!", signup_path, {:style=>'font-style: italic;font-family: arial', :class => "css_class"} %></p>
   </div>
+  </div>
+</div>
 </div>

@@ -1,0 +1,34 @@
+<div class="container-fluid" style="background-color:  #e6e5e5;">
+  <h1>Cập nhật thông tin cá nhân</h1>
+  <div class="row justify-content-center">
+    <div class="col-4" align="center">
+      <%= image_tag @user.display_image if @user.image.attached? %>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-md-9">
+          <%= form_with(model: @user, local: true) do |f| %>
+            <%= render 'shared/error_messages' %>
+            <%= f.label :name, "Tên" %>
+            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control', :disabled => true %>
+            <%= f.label :password, "Mật khẩu" %>
+            <%= f.password_field :password, class: 'form-control' %>
+            <%= f.label :password_confirmation, "Xác nhận mật khẩu" %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <span class="content">
+              <%= f.label :image, "Avatar mới" %>
+              <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+            </span>
+            <%= f.label :time_work, "Thời gian làm việc"%>
+            <%= f.password_field :time_work, class: 'form-control', placeholder:'Nhập khoảng thời gian bạn làm công việc này'%>
+            <%= f.label :job, "Công việc hiện tại" %>
+            <%= f.password_field :job, class: 'form-control', placeholder:'Nhập vào công việc hiện tại của bạn'%>
+            <%= f.submit "Cập nhật", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
