@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         redirect_to user
       else
-        message  = "Account not activated. "
-        message += "Check your email for the activation link."
+        message  = "Tài khoản chưa được kích hoạt."
+        message += "Kiểm tra email của bạn để liên kết kích hoạt."
         flash[:warning] = message
         redirect_to root_url
       end

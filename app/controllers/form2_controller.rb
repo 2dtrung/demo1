@@ -14,7 +14,7 @@ class Form2Controller < ApplicationController
     @form2 = Form2.find(params[:id])
     if @form2.update(form2_params)
       # Handle a successful update.
-      flash[:success] = "Form updated"
+      flash[:success] = "Thông tin đã được cập nhật!"
       redirect_to user_form2_path
     else
       render "edit"

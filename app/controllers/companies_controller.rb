@@ -38,7 +38,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     if @company.update(company_params)
       # Handle a successful update.
-      flash[:success] = "Form updated"
+      flash[:success] = "Thông tin đã được cập nhật!"
       redirect_to user_companies_path(current_user)
     else
       render "edit"

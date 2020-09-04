@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user.image.attach(params[:user][:image])
     if @user.save
       @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản."
       redirect_to root_url
     else
       render 'new'
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "Người dùng đã được xóa."
     redirect_to users_url
   end
 
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       # Handle a successful update.
-      flash[:success] = "Profile updated"
+      flash[:success] = "Hồ sơ người dùng đã được cập nhật!"
       redirect_to @user
     else
       render "edit"
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   private
     def logged_in_user
       unless logged_in?
-        flash[:danger] = "Please log in."
+        flash[:danger] = "Vui lòng đăng nhập."
         redirect_to login_url
       end
     end

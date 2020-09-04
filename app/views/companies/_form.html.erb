@@ -1,26 +1,26 @@
 <%= form_for @company, url: {action: "create"} do |form| %>
 
   <div class="field">
-    <%= form.label :company_name %>
-    <%= form.text_field :company_name %>
+    <%= form.label :company_name, "Tên Công ty" %>
+    <%= form.text_field :company_name, class:"form-control form-control-lg" %>
   </div>
 
   <div class="field">
-    <%= form.label :tax_code %>
-    <%= form.text_field :tax_code %>
+    <%= form.label :tax_code, "Mã thuế" %>
+    <%= form.text_field :tax_code, class:"form-control form-control-lg" %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.label :address, "Địa chỉ" %>
+    <%= form.text_field :address, class:"form-control form-control-lg" %>
   </div>
 
   <div class="field">
-    <%= form.label :position %>
-    <%= form.text_field :position %>
+    <%= form.label :position, "Vị trí" %>
+    <%= form.text_field :position, class:"form-control form-control-lg" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Cập nhật", class: "btn btn-primary" %>
   </div>
 <% end %>

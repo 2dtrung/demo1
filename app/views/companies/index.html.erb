@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Companies</h1>
+<h1>Danh Sách Công ty</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Company name</th>
-      <th>Tax code</th>
-      <th>Address</th>
-      <th>Position</th>
+      <th>Tên Công ty</th>
+      <th>Mã thuế </th>
+      <th>Địa chỉ</th>
+      <th>Vị trí</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +21,7 @@
         <td><%= company.address %></td>
         <td><%= company.position %></td>
         <td><%= link_to 'Sửa', "/users/#{current_user.id}/companies/#{company.id}/edit" %></td>
-        <td><%= link_to 'Xóa', "/users/#{current_user.id}/companies/#{company.id}/", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Xóa', "/users/#{current_user.id}/companies/#{company.id}/", method: :delete, data: { confirm: 'Bạn có chắc muốn xóa không?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Company', new_user_company_path(current_user) %>
+<%= link_to 'Tạo Công ty mới', new_user_company_path(current_user) %>
