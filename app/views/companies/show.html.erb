@@ -2,22 +2,22 @@
 
 <p>
   <strong>Tên công ty:</strong>
-  <%= @company.company_name %>
+  <%= current_user.companies.company_name %>
 </p>
 
 <p>
   <strong>Mã thuế:</strong>
-  <%= @company.tax_code %>
+  <%= current_user.companies.tax_code %>
 </p>
 
 <p>
   <strong>Địa chỉ:</strong>
-  <%= @company.address %>
+  <%= current_use.companies.address %>
 </p>
 
 <p>
   <strong>Vị trí:</strong>
-  <%= @company.position %>
+  <%= current_user.companies.position %>
 </p>
 
 <%= link_to 'Sửa', "/users/#{current_user.id}/companies/#{company.id}/edit" %> |

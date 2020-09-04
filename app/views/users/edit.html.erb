@@ -22,9 +22,9 @@
               <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
             </span>
             <%= f.label :time_work, "Thời gian làm việc"%>
-            <%= f.password_field :time_work, class: 'form-control', placeholder:'Nhập khoảng thời gian bạn làm công việc này'%>
+            <%= f.text_field :time_work, class: 'form-control', placeholder:'Nhập khoảng thời gian bạn làm công việc này'%>
             <%= f.label :job, "Công việc hiện tại" %>
-            <%= f.password_field :job, class: 'form-control', placeholder:'Nhập vào công việc hiện tại của bạn'%>
+            <%= f.text_field :job, class: 'form-control', placeholder:'Nhập vào công việc hiện tại của bạn'%>
             <%= f.submit "Cập nhật", class: "btn btn-primary" %>
           <% end %>
         </div>

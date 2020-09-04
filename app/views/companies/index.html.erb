@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @companies.each do |company| %>
+    <% current_user.companies.each do |company| %>
       <tr>
         <td><%= company.company_name %></td>
         <td><%= company.tax_code %></td>
