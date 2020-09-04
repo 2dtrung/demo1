@@ -350,12 +350,17 @@ aside {
   left: 20px;
   z-index: 1;
 }
-.container-home h2{
+#container-home h2{
+  margin-top: 40%;
   font-size: 2.5em;
   color:  #6666ff;
   font-family: monospace;
   text-align: left;
   font-weight: bold;
+}
+#container-home a{
+  font-weight: bold;
+  font-size: 1em;
 }
 .container-home h2{
   font-size: 2.5em;
@@ -376,16 +381,13 @@ aside {
   left: 900px;
   z-index: 1;
 }
-.container-home1 {
-  padding-top: 150px;
+#container-home1 {
+  margin-top: 5%;
 }
-.container-home1-text1 h2{
+#container-home1-text1 h2{
   font-size: 2em;
 }
-.container-home2 {
-  margin-top: 90px;
-  margin-left: 460px;
-  width: 46%;
+#container-home2 {
 }
 .container-home3 {
   position: absolute;
@@ -437,26 +439,16 @@ aside {
   text-align: left;
   font-size: 1.5em;
 }
-.container-home5 {
-  margin-left: 660px;
-  margin-top: 60px;
-  height: 20px;
-  width: 200px;
+#container-home5 h2{
   border-bottom: 2px solid #ff9900;
 }
-.container-home6 img{
-  margin-top: 30px;
-  width: 240px;
-  margin-left: 450px;
-  height: 116px;
+#container-home6 img {
+  height: 127.4px;
+  margin-left: 230px;
 }
-.container-home7 {
-  position: absolute;
-  top: 1701px;
-  left: 700px;
-  z-index: 1;
-  width: 420px;
-  height: 100px;
+#container-home7 img {
+  height: 127.4px;
+  margin-right: 50px;
 }
 .container-home8 {
   position: absolute;
