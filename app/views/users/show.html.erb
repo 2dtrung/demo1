@@ -11,11 +11,15 @@
           <%= image_tag @user.display_image if @user.image.attached? %>
         </div>
         <div class="profile-container2">
-          Thông tin cá nhân!
-          <br>
           Tên: <%= @user.name %>
           <br>
-          Email: <%= @user.email %>
+          Ví trí làm việc:
+          <br>
+          Loại hình làm việc:
+          <br>
+          Học viên khóa:
+          <br>
+          Thời gian bắt đầu làm việc:
         </div>
       </h1>
     </section>
@@ -32,19 +36,19 @@
       <h3>
         Nếu bạn làm việc theo kiểu  
         <a style="font-style: italic;" href="https://drive.google.com/file/d/1ucGjhLwVx-uzawQq8bTESnhm36o594Po/view">Tự do</a>
-        (xem form mẫu có sẵn).
+        (click xem form mẫu có sẵn).
       </h3>
       <%= link_to "Nhập thông tin", new_user_form1_url(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}   %>
-      <%= link_to "Xem thông tin", user_form1_url(current_user), {:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}%>
+      <%= link_to "Xuất báo cáo", user_form1_url(current_user), {:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}%>
     </div>
     <div class="carousel-item">
       <h3>
         Nếu bạn làm việc theo kiểu 
         <a style="font-style: italic;" href="https://drive.google.com/file/d/1CoOf9gD-YRsq83h7UlNIyRyct5RFmAdM/view">Nhân viên cho công ty</a>
-        (xem form mẫu có sẵn).
+        (click xem form mẫu có sẵn).
       </h3>
       <%= link_to "Nhập thông tin", new_user_form2_url(current_user),{:style=>'color:white; font-family:cursive; ', :class => "css_class",class: "btn btn-lg btn-primary"}   %>
-      <%= link_to "Xem thông tin", user_form2_url(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}  %>
+      <%= link_to "Xuất báo cáo", user_form2_url(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}  %>
       <%= link_to "Nhập thông tin công ty", new_user_company_path(current_user),{:style=>'color:white; font-family:cursive;', :class => "css_class",class: "btn btn-lg btn-primary"}  %>
     </div>
   </div>

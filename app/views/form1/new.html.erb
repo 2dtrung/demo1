@@ -1,16 +1,16 @@
 <% provide(:title, 'Sign up') %>
-<h1 style="font-family: cursive;">Điền Thông Tin Làm Tự Do</h1>
-<div class="row">
+<h1 style="font-family: arial;">Điền Thông Tin Làm Tự Do</h1>
+<div class="row d-flex justify-content-lg-center">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@form1) do |f| %>
+    <%= form_for Form1.new do |f| %>
       <%= f.label :date, "Ngày"%>
       <%= f.date_field :date, class:"form-control", type:"datetime-local", value:Time.now %>
       <%= f.label :customer, "Khách hàng"%>
-      <%= f.text_field :customer, class:"form-control form-control-lg", placeholder:"nhập vào tên khách hàng" %>
+      <%= f.text_field :customer, class:"form-control form-control-lg", placeholder:"Nhập vào tên khách hàng" %>
       <%= f.label :income, "Thu nhập" %>
-      <%= f.number_field :income, class:"form-control form-control-lg", placeholder:"nhập vào số tiền của công việc cần điền"%>
+      <%= f.number_field :income, class:"form-control form-control-lg", placeholder:"Nhập vào số tiền bạn thu về"%>
       <%= f.label "Mô tả công việc" %>
-      <%= f.text_field :work_des, class:"form-control form-control-lg", placeholder:"nhập vào công việc hàng ngày"%>
+      <%= f.text_field :work_des, class:"form-control form-control-lg", placeholder:"Nhập vào công việc bạn làm"%>
       <span class="image">
         <%= f.label :image, "Hình ảnh xác nhận" %>
         <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
