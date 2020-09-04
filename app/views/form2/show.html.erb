@@ -36,7 +36,7 @@
           <tr>
             <td><%= count%></td>
             <td><%= form2.date %></td>
-            <td><%= number_to_currency(form2.income, :unit => "$", :separator => ".", :delimiter => ",") %></td>
+            <td><%= number_to_currency(form2.income, :unit => "VNĐ",precision: 0, :separator => ".", :delimiter => ",", format: "%n %u") %></td>
             <td><%= form2.work_des%></td>
             <td><span class="content">
                 <%= image_tag form2.display_image if form2.image.attached? %>
@@ -65,9 +65,9 @@
   </div>
 </div>
 <%= link_to 'Trở về', current_user ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
-<button style="font-family: cursive;"type="button" class="btn btn-lg btn-primary btn-lg" onclick="export2Word(window.docx)">Export to Word</button>
-<%= link_to 'Export to Excel', user_form2_index_url(format: :csv) ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
-<button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" id="downloadPDF">Export to PDF</button>
+<button style="font-family: cursive;"type="button" class="btn btn-lg btn-primary btn-lg" onclick="export2Word(window.docx)">Xuất form Word</button>
+<%= link_to 'Xuất form Exel', user_form2_index_url(format: :csv) ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
+<button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" id="downloadPDF">Xuất form PDF</button>
 <%# <script type="text/javascript">
   $(document).ready(function() {
       $('#table2').DataTable();

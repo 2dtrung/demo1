@@ -1,7 +1,7 @@
 <div id="docx">
   <div id="report1" class="WordSection1">
     <center>
-      <h1>BÁO CÁO THU NHẬP LÀM VIỆC TẠI</h1>
+      <h1>BÁO CÁO THU NHẬP LÀM VIỆC TẠI NHÀ</h1>
       <h1>DÀNH CHO NGƯỜI LÀM VIỆC TỰ DO</h1>
       <p class="text-uppercase">Income statement for working at home</p>
       <p class="text-uppercase">(Type : Freelancer/self - employed)</p>
@@ -27,7 +27,7 @@
             <td><%= count%></td>
             <td><%= form1.date%></td>
             <td><%= form1.customer %></td>
-            <td><%= number_to_currency(form1.income, :unit => "$", :separator => ".", :delimiter => ",") %></td>
+            <td><%= number_to_currency(form1.income, :unit => "VNĐ",precision: 0, :separator => ".", :delimiter => ",", format: "%n %u") %></td>
             <td><%= form1.work_des %></td>
             <td>
               <span class="content">
@@ -48,9 +48,9 @@
 <br>
 <br>
 <%= link_to 'Trở về', current_user ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
-<button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" onclick="export2Word(window.docx)">Export to Word</button>
-<%= link_to 'Export to Excel', user_form1_index_url(format: :csv) ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
-<button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" id="downloadPDF">Export to PDF</button>
+<button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" onclick="export2Word(window.docx)">Xuất form Word</button>
+<%= link_to 'Xuất form Exel', user_form1_index_url(format: :csv) ,{:style=>'font-family: cursive;', :class => "css_class", class: "btn btn-lg btn-primary"}%>
+<button style="font-family: cursive;" type="button" class="btn btn-lg btn-primary btn-lg" id="downloadPDF">Xuất form PDF</button>
 <%# <script type="text/javascript">
   $(document).ready(function() {
       $('#table1').DataTable();

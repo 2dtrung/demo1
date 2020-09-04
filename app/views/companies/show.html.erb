@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Company name:</strong>
+  <strong>Tên công ty:</strong>
   <%= @company.company_name %>
 </p>
 
 <p>
-  <strong>Tax code:</strong>
+  <strong>Mã thuế:</strong>
   <%= @company.tax_code %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Địa chỉ:</strong>
   <%= @company.address %>
 </p>
 
 <p>
-  <strong>Position:</strong>
+  <strong>Vị trí:</strong>
   <%= @company.position %>
 </p>
 
 <%= link_to 'Sửa', "/users/#{current_user.id}/companies/#{company.id}/edit" %> |
-<%= link_to 'Back', user_company_path(current_user) %>
+<%= link_to 'Trở về', user_company_path(current_user),{:style=>'color: white;', :class => "css_class", class: "btn btn-primary"} %>
